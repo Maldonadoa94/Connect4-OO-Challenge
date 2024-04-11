@@ -31,7 +31,7 @@ class Game {
 
   makeBoard() {
     this.board = [];
-    for (let y = 0; y < HEIGHT; y++) {
+    for (let y = 0; y < this.HEIGHT; y++) {
       this.board.push(Array.from({ length: this.WIDTH }));
     }
   }
