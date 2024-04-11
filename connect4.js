@@ -9,7 +9,6 @@ class Game {
     this.HEIGHT = HEIGHT;
     this.WIDTH = WIDTH;
     this.currPlayer = p1; // active player: 1 or 2
-    this.board = []; // array of rows, each row is array of cells  (board[y][x])
     this.gameOver = false;  //tracker for if the game is over
     //this.startButton = document.getElementById('start-button');
     //this.startButton.addEventListener('click', this.startGame.bind(this));
@@ -31,6 +30,7 @@ class Game {
    */
 
   makeBoard() {
+    this.board = [];
     for (let y = 0; y < HEIGHT; y++) {
       this.board.push(Array.from({ length: this.WIDTH }));
     }
@@ -166,10 +166,10 @@ class Game {
 
         // find winner (only checking each win-possibility as needed)
         if (
-        _win.call(this, horiz) || 
-        _win.call(this, vert) ||
-        _win.call(this, diagDR) || 
-        _win.call(this, diagDL)) {
+        _win(horiz) || 
+        _win(vert) ||
+        _win(diagDR) || 
+        _win(diagDL)) {
           return true;
         }
       }
