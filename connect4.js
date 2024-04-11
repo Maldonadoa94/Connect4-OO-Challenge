@@ -140,20 +140,19 @@ class Game {
   /** checkForWin: check board cell-by-cell for "does a win start here?" */
 
   checkForWin() {
-    function _win(cells) {
       // Check four cells to see if they're all color of current player
       //  - cells: list of four (y, x) cells
       //  - returns true if all are legal coordinates & all match currPlayer
-
-      return cells.every(
-        ([y, x]) =>
-          y >= 0 &&
-          y < this.HEIGHT &&
-          x >= 0 &&
-          x < this.WIDTH &&
-          this.board[y][x] === this.currPlayer
+      const _win = cells => 
+        cells.every(
+          ([y, x]) =>
+            y >= 0 &&
+            y < this.HEIGHT &&
+            x >= 0 &&
+            x < this.WIDTH &&
+            this.board[y][x] === this.currPlayer
       );
-    }
+    
 
     for (let y = 0; y < this.HEIGHT; y++) {
       for (let x = 0; x < this.WIDTH; x++) {
